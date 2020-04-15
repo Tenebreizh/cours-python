@@ -19,9 +19,16 @@ def totalTtc(totalHt):
     return totalHt + (totalHt * 0.2)
 
 
-def showResult(subTotalHt, remise, totalHt, totalTtc):
+def showResult(selectedProducts, subTotalHt, remise, totalHt, totalTtc):
+    print(selectedProducts)
+    print("+-----------+------------+---------------+---------------+")
+    print("|    Nom    |    Prix    |   Quantité    |   Total HT    |")
+    print("+-----------+------------+---------------+---------------+")
+    for product in selectedProducts:
+        # print(product)
+        print("|  ", product[0], " |     ", product[1], "     |    ", int(product[2]), "     | ", float(product[1]) * product[2], "         |")
+    print("+-----------+------------+---------------+---------------+")
     print()
-    print("-----------------")
     print("Sous-total HT = ", subTotalHt, " €")
     if remise > 0:
         print("Remise 5% = ", remise, " €")

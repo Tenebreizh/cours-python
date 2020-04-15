@@ -20,6 +20,8 @@ products = {
     }
 }
 
+selectedProducts  = []
+
 # Affichage des produits disponibles
 caisse.showProducts(products)
 
@@ -52,6 +54,9 @@ while(True):
     # Selection de la quantité d'article
     quantity = float(input("Quantité: "))
 
+    # Enregistrement de l'article selectionné
+    selectedProducts.append([product['nom'], product['prix'], quantity])
+
     productPrice = float(product['prix'])
 
     # Sous-total HT
@@ -67,4 +72,4 @@ totalHt = caisse.totalHt(subTotalHt, remise)
 totalTtc = caisse.totalTtc(totalHt)
 
 # Affichage résultat
-caisse.showResult(subTotalHt, remise, totalHt, totalTtc)
+caisse.showResult(selectedProducts, subTotalHt, remise, totalHt, totalTtc)
